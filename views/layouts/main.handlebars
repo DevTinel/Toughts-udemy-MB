@@ -13,11 +13,22 @@
     <a href="/" id="logo"><img src="/img/toughts_logo.png" alt="logo"></a>
     <ul>
       <li><a href="/">Pensamentos</a></li>
+     {{#if session.userid}}
+      <li><a href="/toughts/dashboard">Dashboard</a></li>
+      <li><a href="/logout">Sair</a></li>
+     {{else}}
       <li><a href="/login">Entrar</a></li>
       <li><a href="/register">Registrar</a></li>
+     {{/if}}
     </ul>
   </nav>
   <div class="container">
+    {{!-- MENSAGENS --}}
+    {{#if messages.message}}
+       <div class="message">
+          {{messages.message}}
+        </div>
+    {{/if}}
        {{{body}}}
   </div>
   <footer>
